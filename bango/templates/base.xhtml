@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Description" content="Strona domowa Wojciecha Gawrońskiego. Blog, Django, Bango, Blog, Produkcje, Programowanie, OpenGL, Plot3D."/>
+	<meta name="Keywords" content="Programowanie,Bango,Pascal,C++,OpenGL,Gamedev,Linux,Django,Python,Gentoo,Plot3D"/>
+	<meta name="robots" content="all"/>
+	<meta name="verify-v1" content="A3Jo7Ka1JXl8ddbZh4T/TIZVpQGVissTm9SiRn20sWY="/>
+	
+        <link rel="icon" type="image/png" href="/media/favicon.ico"/> 
+        <link rel="stylesheet" type="text/css" href="/media/styles/main.css" />
+        
+        <!-- Code Highlighter  -->
+        <link type="text/css" rel="stylesheet" href="/media/styles/shCore.css" />
+        <link type="text/css" rel="stylesheet" href="/media/styles/shThemeDjango.css" /> 
+        
+	<script type="text/javascript" src="/media/scripts/emoticons.js"></script>       
+
+        <script type="text/javascript" src="/media/scripts/shCore.js"></script>
+        <script type="text/javascript" src="/media/scripts/shBrushPython.js"></script>
+        <script type="text/javascript" src="/media/scripts/shBrushCpp.js"></script>        
+        <script type="text/javascript" src="/media/scripts/shBrushCSharp.js"></script>        
+	<script type="text/javascript">
+	    SyntaxHighlighter.all();
+	</script>
+                
+        <?xml-stylesheet type="text/css" href="/media/styles/main.css" ?>
+
+        <!-- Tytul strony (podstron) -->
+        <title>{% block title %}Wojtek Gawroński - Strona Domowa{% endblock %}</title>
+    </head>
+    <body xml:lang="pl">
+        
+        <!-- Baner (logo) -->
+        <div id="logo">
+		<a href="/blog/"><img src="/media/img/banner.png" style="vertical-align:middle;border:0" alt="Banner"/></a>
+        </div>
+
+        <div id="rightbar">
+            <!-- Tagi (kategorie) -->
+            {% block tags %}
+                <h2 class="smaller">Tagi:</h2>
+                {% for line in tag_counts %}
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="/blog/tag/{{ line.tag }}/">{{ line.tag }}</a> ({{ line.count }})<br/>
+                {% endfor %}
+            {% endblock %}
+
+            <!-- Archiwum -->
+            {% block archive %}
+                <h2 class="smaller">Archiwum:</h2>
+                {% for line in archive_counts %}
+                    {% if line.isyear %}
+                        {% if not forloop.first %}
+                            <br/>
+                        {% endif %}
+                        <a href="/blog/{{ line.year }}/">{{ line.year }}</a> ({{ line.count }})<br/>
+                    {% else %}
+                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="/blog/{{ line.yearmonth }}/">{{ line.monthname }}</a> ({{ line.count }})<br/>
+                    {% endif %}
+                {% endfor %}
+            {% endblock %}
+
+            {% block feeds %}
+                <h2 class="smaller">Subskrypcja:</h2>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a href="/blog/feeds/latest/" rel="alternate" type="application/rss+xml"><img alt="Feed" style="vertical-align:middle;border:0" src="/media/img/feed.png" /></a>
+                <a href="/blog/feeds/latest/">Subskrybuj</a><br/>
+            {% endblock %}
+
+            <!-- Blok O blogu... -->
+            {% block about_blog %}
+                <h2 class="smaller">O blogu...</h2>
+
+                <p class="smaller">Kolejny techblog jakich wiele.<br/>Treść to mieszanka <a href="http://www.python.org">Python'a</a> i 
+                <a href="http://www.djangoproject.com">Django</a>, C/C++, programowania grafiki i gier, Linuksa,<br/>
+                Open Source, a czasem dość niskopoziomowego programowania.<br/><br/>
+                Proszę o wyrozumiałość, strona i szkielet są cały czas konstruowane.
+                </p>
+            {% endblock %}
+
+            <!-- Blok O mnie... -->
+            {% block about_me %}
+                <h2 class="smaller">O mnie...</h2>
+		<img src="/media/img/me.jpg" style="vertical-align:middle;border:1px solid #000000" alt="Twórca bloga"/>
+		<p class="smaller">Komputerowy "geek" :geek:<br/>
+                Student informatyki na <a href="http://www.polsl.pl/rau">Politechnice Śląskiej</a>.<br/>
+		Muzyka: <a href="http://www.lastfm.pl/user/afronski">Last.fm</a><br/>
+                </p>
+            {% endblock %}
+
+            <!-- Obrazki "powered by django" i walidatory -->
+	    <p style="text-align:center">
+	    <a href="http://www.djangoproject.com/community/badges/"><img style="vertical-align:middle;border:0" src="http://media.djangoproject.com/img/badges/djangopowered126x54.gif" alt="Powered by Django"/></a><br/><br/>
+	    <a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10-blue" style="border:0"
+		    alt="Valid XTMHL 1.0 Strict" height="31" width="88"/></a>
+	    <a href="http://jigsaw.w3.org/css-validator/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS 2.1"/></a>
+	    <a href="http://validator.w3.org/feed/check.cgi?url=http%3A//afronski.hobby-site.org/blog/feeds/latest/"><img style="border:0" src="/media/img/valid-atom.png" alt="[Valid Atom 1.0]" /></a>
+	    </p>
+        </div>
+        
+        <!-- Wlasciwa zawartosc strony (blok desc sluzy do opisu wyswietlanej stronki, badz linku wracajacego do stronki glownej, desc2 rowniez) -->
+        <div id="content">
+            <h2 class="smaller">{% block desc %}{% endblock %}</h2>
+            {% block content %} {% endblock %}
+            {% block desc2 %}{% endblock %}
+
+            <!-- Stopka (pozycja wzgledem nadrzednego kontenera) -->
+            <div id="footer">
+                {% block footer %}
+                    powered by <a class="footer" href="http://www.djangoproject.com/">Django</a>, <a class="footer" href="http://www.vim.org">Vim</a>, 
+                                <a class="footer" href="http://www.sqlite.org">sqlite</a> and <a class="footer" href="http://www.slackware.com">Slackware</a><br/>
+                                Bango::blog ({{ version }}) Copyright 2008 &copy; <a class="footer" href="mailto:afronski@gmail.com">Wojtek Gawroński</a>
+                {% endblock %}
+            </div>
+        </div>
+
+    </body>
+</html>

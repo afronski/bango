@@ -1,0 +1,14 @@
+{% extends "base.xhtml" %}
+
+{% block title %}{{ error.type }} - Error{% endblock %}
+
+{% block desc %} {% endblock %}
+
+{% block content %}
+    <div id="error">
+        <h2 class="smaller">{{ error.type }}</h2>
+        <p class="smaller">{{ error.text }}</p>
+    </div>
+{% endblock %}
+
+{% block desc2 %} {% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.xhtml" %}
+
+{% block desc %} {% endblock %}
+
+{% block content %}
+    <h2 class="smaller">Twój komentarz:</h2>
+
+    <form action="/comments/postfree/" method="post">
+        {% if comment_form.has_errors %}
+            <p class="smaller"><strong style="color: red;">Proszę poprawić błędy.</strong></p>
+        {% else %}
+            <div id="comment_box">
+                {{ comment.comment|escape|urlizetrunc:"40"|linebreaks }}
+                <p class="smaller">Napisany przez: <strong>{{ comment.person_name|escape }}</strong></p>
+            </div>
+
+            <p><input type="submit" name="post" value="OK" /></p>
+
+            <h2 class="smaller">Edycja:</h2>
+        {% endif %}
+
+        {% if comment_form.person_name.errors %}
+            {{ comment_form.person_name.html_error_list }}
+        {% endif %}
+
+        <p><label for="id_person_name">Twoje imię:</label> {{ comment_form.person_name }}</p>
+
+        {% if comment_form.comment.errors %}
+            {{ comment_form.comment.html_error_list }}
+        {% endif %}
+
+        <p>
+            <label for="id_comment">Komentarz:</label>
+            <br/>
+            {{ comment_form.comment }}
+        </p>
+    
+        <input type="hidden" name="options" value="{{ options }}" />
+        <input type="hidden" name="target" value="{{ target }}" />
+        <input type="hidden" name="gonzo" value="{{ hash }}" />
+
+        <p>
+            <input type="submit" name="preview" value="Podgląd" />
+        </p>
+    </form>
+{% endblock %}
+
+{% block desc2 %} {% endblock %}

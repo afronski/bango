@@ -1,0 +1,14 @@
+{% extends "base.xhtml" %}
+
+{% block desc %} {% endblock %}
+
+{% block content %}
+    <h2 class="smaller">Komentarz zaakceptowany.</h2>
+    <p class="smaller">Dziękuję za udział w dyskusji.<br/><br/>
+    {% if object %}
+        <a href="{{ object.get_absolute_url }}">Zobacz komentarz</a>
+    {% endif %}
+    </p> 
+{% endblock %}
+
+{% block desc2 %} {% endblock %}

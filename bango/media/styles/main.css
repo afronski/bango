@@ -1,0 +1,195 @@
+/* Ciało całej strony - wartości dziedziczone */
+body
+{
+    margin: 0;
+    padding: 0;
+
+    font-family: Georgia, Times, "Times New Roman", serif;
+
+    color: black;
+
+    width: 900px;
+}
+
+/* Wartości dziedziczone przez wszystkie warstwy */
+div
+{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+/* Blok określający właściwości czcionki dla kodu źródłowego */
+code
+{
+    font-weight: normal;
+    font-size: 9pt;
+    font-family: Monospace;
+}
+
+/* Kolory linków */
+a:Active    { color: #00c900; text-decoration: none;        }
+a:link      { color: #00c900; text-decoration: none;        }
+a:visited   { color: #005500; text-decoration: none;        }
+a:hover     { color: #00c900; text-decoration: underline;   }
+
+/* Specjalne linki do stopki */
+a.footer:Active     { color: #000000; text-decoration: none;        }
+a.footer:link       { color: #000000; text-decoration: none;        }
+a.footer:visited    { color: #000000; text-decoration: none;        }
+a.footer:hover      { color: #0000ff; text-decoration: underline;   }
+
+/* Warstwa dla błędów */ 
+div#error
+{
+    position: relative;
+    left: 8px;
+
+    margin: 0 1em 0 1em;
+
+    text-align: center;
+    
+    font-family: Monospace;
+    color: #ff0000;
+
+    border: 2px dotted #ff0000;
+}
+
+/* Warstwa dla komentarzy */ 
+div#comment_box
+{
+    position: relative;
+    left: 0px;
+    
+    padding-left: 8px;
+    margin-bottom: 8px;
+
+    border: 1px dotted #009a00;
+}
+
+/* Warstwa o pozycjonowaniu relatywnym, okręślająca blok kodu źródłowego */
+div#code
+{
+    position: relative;
+    left: 16px;
+
+    text-align: left;
+
+    padding-left: 16px;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    border-left: 2px dotted #005500;
+}
+
+/* Warstwa o pozycjonowaniu absolutnym - obejmuje logo */
+div#logo
+{
+    background-color: #00c900;
+
+    text-align:center;
+
+    position: absolute;
+
+    left: 8px;
+    right: 8px;
+    top: 8px;
+    height: 150px;
+
+    border: 1px solid black;
+}
+
+/* Prawe menu */
+div#rightbar
+{
+    position:absolute;
+
+    width: 300px;
+
+    right: 8px;
+    top: 170px;
+
+    margin-left: 100px;
+
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 0px;
+
+    border: 1px dotted black;
+}
+
+/* Główna treść strony */
+div#content
+{
+    position:absolute;
+    top: 170px;
+    left: 8px;
+    right: 384px;
+
+    padding-top: 1em;
+
+    margin: 0 1em 0 1em;
+}
+
+/* Warstwa stopki danego postu */
+div.postfooter
+{
+    position:relative;
+
+    clear: both;
+
+    text-align: right;
+
+    font-family: Verdana;
+    font-size: 70%;
+}
+
+/* Warstwa stopki całej strony */
+div#footer
+{
+    position:relative;
+
+    text-align: center;
+
+    top: 8px;
+    left: 0px;
+    right: 0px;
+    height: 20px;
+
+    clear: both;
+
+    background-color: #00c900;
+
+    padding-top: 1em;
+    padding-bottom: 1em;
+
+    font-family: Monospace;
+    font-size: 75%;
+
+    border: 1px dotted black;
+}
+
+/* Identyfikator specjanego separatora do oddzielania postów */
+hr.postsplitter
+{
+    border: 0;
+
+    color: #009a00;
+    background-color: #009a00;
+
+    height: 1px;
+}
+
+/* Mniejsza czcionka dla nagłówka */
+h2.smaller
+{
+    font-size: 90%;
+}
+
+/* Mniejsza czcionka dla akapitu */
+p.smaller
+{
+    font-size: 80%;
+}
